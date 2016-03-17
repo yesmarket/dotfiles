@@ -1,26 +1,20 @@
+[include]
+	path = .gitconfig_include.proxy
 [user]
-	email = rbartsch@adam.com.au
 	name = Ryan Bartsch
+	email = rbartsch@homestart.com.au
 [core]
-	editor = 'c:/program files/sublime text 3/subl.exe' -w
 	autocrlf = true
-[diff]
-	tool = bc4
-[difftool "bc4"]
-	cmd = \"c:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
-[merge]
-	tool = bc4
-[mergetool "bc4"]
-	cmd = \"c:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-	trustExitCode = true
+[include]
+	path = .gitconfig_include.tools
 [alias]
 	list = diff-tree -r --name-only --no-commit-id
 	last = log -1 HEAD
 	bc = difftool --dir-diff --no-prompt
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ac = !git add -A && git commit
-	co  = checkout
+	co = checkout
 	br = branch
 	ci = commit
 	st = status
-	gs = git status
+	gs = st
