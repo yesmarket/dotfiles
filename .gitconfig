@@ -3,6 +3,7 @@
 [user]
 	name = Ryan Bartsch
 	email = rbartsch@homestart.com.au
+	signingkey = 6AFC2925
 [core]
 	autocrlf = true
 [include]
@@ -18,3 +19,4 @@
 	ci = commit
 	st = status
 	gs = st
+	stash-unapply = !git stash show -p | git apply -R
