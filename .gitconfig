@@ -20,3 +20,6 @@
 	st = status
 	gs = st
 	stash-unapply = !git stash show -p | git apply -R
+	submodule-update = submodule update --init --recursive
+	up-sub = !git submodule-update
+	pullall = !git pull && git up-sub
