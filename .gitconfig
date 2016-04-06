@@ -13,13 +13,12 @@
 	br = branch
 	ci = commit
 	st = status
-	gs = st
 	list = diff-tree -r --name-only --no-commit-id
 	last = log -1 HEAD
 	dir-diff = difftool --dir-diff --no-prompt
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ac = !git add -A && git ci
-	stash-unapply = !git stash show -p | git apply -R
-	submodule-update = submodule update --init --recursive
-	up-sub = !git submodule-update
-	pullall = !git pull && git up-sub
+	#stash-unapply = !git stash show -p | git apply -R
+	submodule-trackbranch = "!git submodule foreach -q --recursive 'branch=\"$(git config -f $toplevel/.gitmodules submodule.$name.branch)\"; git checkout $branch'"
+	upsub = !git submodule update --init --recursive --remote && git submodule-trackbranch
+	#pullall = !git pull && git up-sub
